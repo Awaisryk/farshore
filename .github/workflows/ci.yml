@@ -1,0 +1,36 @@
+name: macOS checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      FLUTTER_SUPPRESS_ANALYTICS: 'true'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Prepare pinned tools without full Xcode
+        run: scripts/bootstrap.sh
+      - name: Analyze Dart
+        run: .tools/flutter/bin/flutter --no-version-check analyze
+      - name: Flutter regression tests
+        run: .tools/flutter/bin/flutter --no-version-check test
+      - name: Backend regression tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Build standalone release AOT app
+        run: scripts/build-app.sh --release
+      - name: Verify bundle signatures and local runtime
+        run: |
+          codesign --verify --deep --strict build/Farshore.app
+          build/Farshore.app/Contents/Resources/Runtime/python/bin/python3 -I -B -c 'import ssl, json, subprocess, concurrent.futures, http.server'
+      - name: Verify native Home accessibility
+        run: scripts/test-native-accessibility.sh build/Farshore.app --home
+      - name: Verify relocated standalone runtime
+        run: python3 scripts/test-portable-app.py build/Farshore.app

@@ -1,0 +1,11 @@
+.tools/
+.runtime/
+.build/
+build/
+dist/
+.dart_tool/
+.flutter-plugins*
+*.pyc
+__pycache__/
+.DS_Store
+macos/Flutter/ephemeral/

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "architecture": "arm64",
+  "python": {
+    "version": "3.13.17",
+    "release": "20261021",
+    "sourceCommit": "0c5e581b54a4736cdbbe68bdd6d7e571a1dca11e",
+    "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.13.17%2B20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "sha256": "8dc60610a82f1e73be7faf964383e02520f95f6e39592a5c37c3809f5a7b798e",
+    "provenanceUrl": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.13.17%2B20261021-aarch64-apple-darwin-pgo%2Blto-full.tar.zst",
+    "provenanceSha256": "3ccb423f96990a6ac6a10e23052ba6c70144117559af097cd0c0305939dc015b"
+  },
+  "rclone": {
+    "version": "1.75.2",
+    "url": "https://downloads.rclone.org/v1.75.2/rclone-v1.75.2-osx-arm64.zip",
+    "sha256": "610ab7d48615135dfc60b763858b11a426a0d3d1160c1bb76fb0ae6011b02edd"
+  },
+  "flutter": {
+    "version": "3.47.7",
+    "commit": "abaf9c523780a608bd46686fd5e53740a07077f8"
+  }
+}

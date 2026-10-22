@@ -1,0 +1,61 @@
+RCLONE DEPENDENCY SOURCE AVAILABILITY
+
+This distribution includes an unchanged official rclone v1.75.2 executable.
+rclone contains github.com/cloudsoda/sddl under the GNU Lesser General Public
+License version 3. Its use is covered by that license. Original LGPL3 and GPL3
+texts accompany these notices. Farshore imposes no restriction on reverse
+engineering to debug modifications to that library.
+
+The exact library source, corresponding rclone/application source, all242
+compiled dependency sources, offline build/relink scripts and installation
+instructions are provided together as a matching release asset:
+https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/Farshore-0.2.0-rclone-corresponding-source.zip
+See RELINKING.md and source-manifest.json for checksums and rebuilding details.
+
+The following dependency source archives are also supplied inside the app.
+The MPL-2.0 components are supplied without modifications.
+Their covered source files remain available under the Mozilla Public License 2.0;
+see each module's original LICENSE document and https://www.mozilla.org/MPL/2.0/.
+
+Inside Farshore.app, these archives are in:
+Contents/Resources/Runtime/licenses/rclone-third-party/sources/
+
+Exact source downloads are also available at the URLs below. SHA-256 and Go h1
+checksums for every archive are recorded in inventory.json.
+
+github.com/anacrolix/generics v0.2.0 · MPL-2.0
+Bundled: sources/github.com--anacrolix--generics@v0.2.0.zip
+Upstream: https://proxy.golang.org/github.com/anacrolix/generics/@v/v0.2.0.zip
+
+github.com/anacrolix/log v0.17.0 · MPL-2.0
+Bundled: sources/github.com--anacrolix--log@v0.17.0.zip
+Upstream: https://proxy.golang.org/github.com/anacrolix/log/@v/v0.17.0.zip
+
+github.com/cloudsoda/sddl v0.0.0-20250224235906-926454e91efc · LGPL-3.0
+Bundled: sources/github.com--cloudsoda--sddl@v0.0.0-20250224235906-926454e91efc.zip
+Upstream: https://proxy.golang.org/github.com/cloudsoda/sddl/@v/v0.0.0-20250224235906-926454e91efc.zip
+
+github.com/hashicorp/errwrap v1.0.0 · MPL-2.0
+Bundled: sources/github.com--hashicorp--errwrap@v1.0.0.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/errwrap/@v/v1.0.0.zip
+
+github.com/hashicorp/go-cleanhttp v0.5.2 · MPL-2.0
+Bundled: sources/github.com--hashicorp--go-cleanhttp@v0.5.2.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/go-cleanhttp/@v/v0.5.2.zip
+
+github.com/hashicorp/go-multierror v1.1.1 · MPL-2.0
+Bundled: sources/github.com--hashicorp--go-multierror@v1.1.1.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/go-multierror/@v/v1.1.1.zip
+
+github.com/hashicorp/go-retryablehttp v0.7.8 · MPL-2.0
+Bundled: sources/github.com--hashicorp--go-retryablehttp@v0.7.8.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/go-retryablehttp/@v/v0.7.8.zip
+
+github.com/hashicorp/go-uuid v1.0.3 · MPL-2.0
+Bundled: sources/github.com--hashicorp--go-uuid@v1.0.3.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/go-uuid/@v/v1.0.3.zip
+
+github.com/hashicorp/golang-lru/v2 v2.0.7 · MPL-2.0
+Bundled: sources/github.com--hashicorp--golang-lru--v2@v2.0.7.zip
+Upstream: https://proxy.golang.org/github.com/hashicorp/golang-lru/v2/@v/v2.0.7.zip
+
