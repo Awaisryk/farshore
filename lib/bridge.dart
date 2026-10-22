@@ -127,6 +127,8 @@ class ProcessBridge implements BridgeClient, BridgeRecovery {
     final generation = ++_generation;
     try {
       final process = await Process.start(_python, [
+        '-I',
+        '-B',
         script.path,
         'serve',
       ], workingDirectory: _root);

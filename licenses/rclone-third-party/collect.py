@@ -110,6 +110,8 @@ def module_notice(module):
                     continue
                 if not DOCUMENT.match(parsed.name):
                     continue
+                if parsed.suffix.lower() in {'.go', '.c', '.h', '.cc', '.cpp', '.py', '.js'}:
+                    continue
                 content = archive.read(name)
                 if len(content) > 4 * 1024 * 1024 or b'\x00' in content[:4096]:
                     continue
@@ -157,6 +159,17 @@ def finalize(inventory):
         inventory['sourceProvision'] = provision
         review = [item for item in review if item['module'] != 'github.com/cloudsoda/sddl']
     inventory['additionalTermsReview'] = review
+    inventory['additionalDocuments'] = [
+        {'file': 'GPL-3.0.txt', 'sourceUrl': 'https://raw.githubusercontent.com/spdx/license-list-data/v3.27.0/text/GPL-3.0-only.txt',
+         'sha256': sha((OUT / 'GPL-3.0.txt').read_bytes())},
+        {'file': 'LGPL-3.0.txt', 'sourceUrl': 'https://proxy.golang.org/github.com/cloudsoda/sddl/@v/v0.0.0-20250224235906-926454e91efc.zip',
+         'sha256': sha((OUT / 'LGPL-3.0.txt').read_bytes())},
+    ]
+    inventory['relinkHeaderSource'] = {
+        'url': 'https://codeload.github.com/macfuse/library/tar.gz/7a6cdd2b6e11071a706f4295aa931c65223ba953',
+        'sha256': '3d6c946d3775a7915f2c974b75612dc509e9f094864b9c1d729afd85c73936c8',
+        'note': 'Compatible official source-only headers supplied in the relink asset; original upstream SDK revision is not recorded in the binary.',
+    }
     inventory['complete'] = not unresolved and not review and source_provided and bool(inventory.get('goSource'))
     (OUT / 'inventory.json').write_text(json.dumps(inventory, indent=2) + '\n')
     source_lines = [
@@ -176,8 +189,8 @@ def finalize(inventory):
         '',
         'The following dependency source archives are also supplied inside the app.',
         'The MPL-2.0 components are supplied without modifications.',
-        'Their covered source files remain available under the Mozilla Public License 2.0;',
-        'see each module\'s original LICENSE document and https://www.mozilla.org/MPL/2.0/.',
+        'The MPL source remains under MPL-2.0; the sddl source remains under LGPL3.',
+        'See each module\'s original LICENSE document and the enclosed license texts.',
         '',
         'Inside Farshore.app, these archives are in:',
         'Contents/Resources/Runtime/licenses/rclone-third-party/sources/',

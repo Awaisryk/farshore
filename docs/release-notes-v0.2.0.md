@@ -14,6 +14,6 @@ The Apple Silicon app bundles Python, rclone and the native helper. A checkout, 
 
 Download the ZIP, verify it with `SHA256SUMS`, unzip and move `Farshore.app` to Applications. Quit the previous version before replacing it. Preferences survive upgrades. See [installation/migration](https://github.com/Awaisryk/farshore/blob/main/docs/releases.md) and [remaining release gates](https://github.com/Awaisryk/farshore/blob/main/docs/production-readiness.md).
 
-Validation: 150 Flutter tests, 73 backend/packaging tests and clean analysis, plus native bundle/runtime, preview, playback and accessibility smoke checks described in the repository. Source uses MIT; dependency notices are included in the app and available through Settings.
+Validation: 151 Flutter tests, 73 backend/packaging tests and clean analysis, plus native bundle/runtime, preview, playback and accessibility smoke checks described in the repository. Source uses MIT; dependency notices are included in the app and available through Settings.
 
 The companion `Farshore-0.2.0-rclone-corresponding-source.zip` supplies the exact rclone/dependency sources and rebuild/replacement instructions, including LGPL/MPL components. It is an optional source download; it is not needed to run the app. The app retains the original dependency notices and source-availability details.

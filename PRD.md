@@ -408,21 +408,23 @@ The estimate assumes macOS first and reuse of a viable filesystem engine. Writin
 
 | Decision | Current position | Resolution point |
 | --- | --- | --- |
-| Project name | Farshore is the working name chosen for the folder | Before public branding or distribution |
-| UI framework | Flutter recommended; React Native remains an allowed option | Before scaffold commitment |
-| Initial client platform | macOS proposed | At implementation kickoff |
-| Filesystem engine | Existing open-source engine preferred; rclone is first candidate | M0 |
+| Project name | Farshore; public repository Awaisryk/farshore | Selected |
+| UI framework | Flutter release AOT with a Command Line Tools AppKit host | Implemented |
+| Initial client platform | Apple Silicon macOS read-only beta | Implemented; wider platforms remain future work |
+| Filesystem engine | rclone 1.75.2/OpenSSH; experimental NFS for external apps, scoped SSH ranges internally | Wider M0 acceptance remains open |
 | Write support | Read-only technical gate, then explicit operations; external editing separately validated | M3 |
 | Open-source license | MIT, selected by the user for public Awaisryk/farshore publication | Decided October 22, 2026 |
-| Public distribution | Undecided; local development first | M4 planning |
-| Internal video player | Common-format preview desirable; selected external apps remain essential | After M0 format tests |
-| Automatic reconnect and launch | Conservative defaults; no surprise background activity | M2–M3 |
+| Public distribution | Public GitHub source and read-only beta; ad hoc signed, not notarized | Developer ID/Gatekeeper gates remain |
+| Internal video player | Authenticated installed VLC 3; explicit Open With fallback | Implemented; wider format/media acceptance remains open |
+| Automatic reconnect and launch | Bounded retries for safe reads, cancellation and lazy explicit workspace resume | Implemented for read-only beta |
 
 Treat framework and platform recommendations as sensible starting points, not blockers requiring a long questionnaire. Make routine implementation choices, record reasons, and ask only when a material product tradeoff cannot be resolved from this brief.
 
 ## 20 Fresh session handoff
 
-No implementation has been started in this folder. The PRD and README are the deliverables from the planning session. No SMB setup should be resumed from the earlier conversation.
+A working read-only macOS beta is implemented. Start with [README](README.md), [implementation status](docs/implementation-status.md) and [engineering decisions](docs/decisions.md), then use the pinned build scripts. Source and beta distribution use the public Awaisryk/farshore repository.
+
+The complete PRD is broader than the beta. Transfers, remote writes, wider media/external-app acceptance, Developer ID notarization and full older-system coverage remain gated as recorded in [production readiness](docs/production-readiness.md). Existing remote access stays SSH; no SMB setup or remote service installation is required.
 
 Begin by reading repository and parent instructions, inspecting the available Flutter/React Native and macOS toolchains, and choosing a small technical validation plan. Preserve existing SSH trust and credentials. Do not install anything on the remote machines or reorganize their files as part of this work.
 

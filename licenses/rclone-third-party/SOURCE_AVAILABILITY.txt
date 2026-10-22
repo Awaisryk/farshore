@@ -14,8 +14,8 @@ See RELINKING.md and source-manifest.json for checksums and rebuilding details.
 
 The following dependency source archives are also supplied inside the app.
 The MPL-2.0 components are supplied without modifications.
-Their covered source files remain available under the Mozilla Public License 2.0;
-see each module's original LICENSE document and https://www.mozilla.org/MPL/2.0/.
+The MPL source remains under MPL-2.0; the sddl source remains under LGPL3.
+See each module's original LICENSE document and the enclosed license texts.
 
 Inside Farshore.app, these archives are in:
 Contents/Resources/Runtime/licenses/rclone-third-party/sources/

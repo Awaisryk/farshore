@@ -185,6 +185,19 @@ void main() {
     expect((await bridge.call('hosts'))['method'], 'hosts');
   });
 
+  test('helper imports ignore modules beside the script', () async {
+    await File('${directory.path}/json.py').writeAsString(
+      "raise RuntimeError('A local module must not replace the bundled standard library')\n",
+    );
+    expect((await bridge.call('hosts'))['method'], 'hosts');
+    expect(
+      await Directory(
+        directory.path,
+      ).list().any((file) => file.path.endsWith('__pycache__')),
+      false,
+    );
+  });
+
   test(
     'oversized requests are rejected before writing to the helper',
     () async {

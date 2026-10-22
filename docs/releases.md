@@ -38,8 +38,11 @@ The migration copies preferences only if the destination has none, copies eligib
 ```sh
 scripts/bootstrap.sh
 scripts/build-app.sh --release
+# Place the matching rclone corresponding-source release ZIP in dist/ first.
 scripts/package-release.sh
 ```
+
+The public package gate requires the matching corresponding-source ZIP in `dist/` and verifies it against the notice inventory. Download that companion asset from the release, or regenerate it with `python3 scripts/collect-rclone-notices.py --collect --prepare --validate --package` on Apple Silicon with Command Line Tools. That source-kit build verifies an offline baseline and a modified LGPL library before sealing its manifest.
 
 Dependencies are pinned in `scripts/runtime-lock.json` and verified before extraction. The package command writes a versioned ZIP, `SHA256SUMS` and `release-manifest.json` to ignored `dist/`. Without explicit signing credentials it produces an ad hoc signed beta.
 

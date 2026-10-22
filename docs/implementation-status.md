@@ -16,7 +16,7 @@ The Home page uses actual configured servers, recent folders, resumable tabs, ca
 
 Application preferences and retained-session metadata use Application Support/Farshore. Generated thumbnail PNGs use Caches/Farshore; Settings changes the 128 MiB–2 GiB budget or clears completed images without touching open previews or external mounts. Existing SSH credentials stay in OpenSSH tooling. No telemetry or automatic uploads are enabled.
 
-Validation: **150 Flutter tests, 73 backend/packaging tests and clean Flutter analysis**. This includes real subprocess crash/restart, bounded retry/cancel, malformed output, no replay of file opens, stale process exits, lazy workspace restoration, preference races, settings/cache operations and redacted diagnostics. Native package checks and their exact evidence are recorded in [technical validation](technical-validation.md).
+Validation: **151 Flutter tests, 73 backend/packaging tests and clean Flutter analysis**. This includes real subprocess crash/restart, bounded retry/cancel, malformed output, no replay of file opens, stale process exits, lazy workspace restoration, preference races, settings/cache operations and redacted diagnostics. Native package checks and their exact evidence are recorded in [technical validation](technical-validation.md).
 
 Earlier live validation passed real root/data-directory browsing, progressive image/video thumbnails, bounded SSH media ranges, internal video rendering and a 634 KB remote PNG. Native PNG/PDF/RTF/DOCX attachment/close and muted audio decoding passed. Thumbnail diagnosis covered 13 cold real-video samples, including a 310 MB file using about 2.3 MB of source reads. These samples do not establish multi-gigabyte playback or every codec/provider.
 

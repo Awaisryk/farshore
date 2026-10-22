@@ -2971,120 +2971,6 @@
           "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/NOTICE.txt",
           "sha256": "49f452832d8d3cce9465305442782c141ebe1ffdffae7dd43c6034d8a1b21038",
           "bytes": 61
-        },
-        {
-          "sourcePath": "accessgovernancecp/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/accessgovernancecp/license_type.go",
-          "sha256": "17d543b5311389e2b859de9b9be1732ed14bc3a8dbed1bd17b894b4ab67391f6",
-          "bytes": 2300
-        },
-        {
-          "sourcePath": "analytics/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/analytics/license_type.go",
-          "sha256": "210b068db9bde18026c7cfae9f15ecc2a1da1bb570eb5b164dbd817c2dd461dd",
-          "bytes": 1859
-        },
-        {
-          "sourcePath": "goldengate/license_model.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/goldengate/license_model.go",
-          "sha256": "18a58b0ac5ed0694d8eb73d004dfdd8a4eb0940bf3b29c72962b3bec4daeb1af",
-          "bytes": 1966
-        },
-        {
-          "sourcePath": "jms/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/jms/license_type.go",
-          "sha256": "a1c822e5458786ae2a85ab4de7db0499acc63ddd370989f6093e52be00c63084",
-          "bytes": 2215
-        },
-        {
-          "sourcePath": "jmsjavadownloads/license_acceptance_sort_by.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/jmsjavadownloads/license_acceptance_sort_by.go",
-          "sha256": "521fc7a3026aac05aac56e79bc1abc0176f6126a37a1be2d73d67b172f45ae96",
-          "bytes": 2607
-        },
-        {
-          "sourcePath": "jmsjavadownloads/license_acceptance_status.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/jmsjavadownloads/license_acceptance_status.go",
-          "sha256": "882a46f1b55ee86409f1c1c61b3ce80373b4cd6ec326fc9c17b7929e9d8ac696",
-          "bytes": 2184
-        },
-        {
-          "sourcePath": "jmsjavadownloads/license_sort_by.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/jmsjavadownloads/license_sort_by.go",
-          "sha256": "968d7a99e8e4f060b2e99b120a66fd761eda1359fee5a1022b934dd864528b8c",
-          "bytes": 1950
-        },
-        {
-          "sourcePath": "jmsjavadownloads/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/jmsjavadownloads/license_type.go",
-          "sha256": "7e7f38da1698107c517d9a7569f5c61bf6cf291eaa93b5e65a0c1a5b40261a9d",
-          "bytes": 2092
-        },
-        {
-          "sourcePath": "licensemanager/license_metric.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/licensemanager/license_metric.go",
-          "sha256": "32743577be10b4e5c20a4c27eedca6e44fd403cb15fdd4f39ae9b1057addbbe3",
-          "bytes": 1960
-        },
-        {
-          "sourcePath": "licensemanager/license_record.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/licensemanager/license_record.go",
-          "sha256": "75e3bce96367e854eb835595388e98d68d41b8e5710ec60d1c5cda507acecd63",
-          "bytes": 4858
-        },
-        {
-          "sourcePath": "licensemanager/license_record_collection.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/licensemanager/license_record_collection.go",
-          "sha256": "f1dec15c4ee3428c7b266c14ca73cdc75c11ed9667485a829d0e1c248848811d",
-          "bytes": 1430
-        },
-        {
-          "sourcePath": "licensemanager/license_record_summary.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/licensemanager/license_record_summary.go",
-          "sha256": "495a7adca7f56bc642d6b6a3ff011d56175f7866674dc2bb4f79458381f71165",
-          "bytes": 4920
-        },
-        {
-          "sourcePath": "licensemanager/license_unit.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/licensemanager/license_unit.go",
-          "sha256": "9dc77314836d1139b3d3b4917add954f8a16e0d1b2afa2cc66c4bcc79e97e937",
-          "bytes": 2120
-        },
-        {
-          "sourcePath": "oce/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/oce/license_type.go",
-          "sha256": "ce2ea4ac21949fdaae420e7b05cafae43841454e3959c4013de15351eba32cb4",
-          "bytes": 2035
-        },
-        {
-          "sourcePath": "stackmonitoring/license_auto_assign_config_details.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/stackmonitoring/license_auto_assign_config_details.go",
-          "sha256": "ad40ea1a2de1593cf5ae874f6836265610eee186ce91f777f9037ff018f850c8",
-          "bytes": 5109
-        },
-        {
-          "sourcePath": "stackmonitoring/license_auto_assign_config_summary.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/stackmonitoring/license_auto_assign_config_summary.go",
-          "sha256": "505c33a438672179268b693631272c837b66a99cb12b16c47fb3a9f66567e69d",
-          "bytes": 4884
-        },
-        {
-          "sourcePath": "stackmonitoring/license_enterprise_extensibility_config_details.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/stackmonitoring/license_enterprise_extensibility_config_details.go",
-          "sha256": "ec81491692edb6b85d2943466c943365c26598d9e67300f59a1d6f28a7316562",
-          "bytes": 5125
-        },
-        {
-          "sourcePath": "stackmonitoring/license_enterprise_extensibility_config_summary.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/stackmonitoring/license_enterprise_extensibility_config_summary.go",
-          "sha256": "c33cf30fe53cbd319918f2e656c2a087d77c3e498fab4922c6fb91999729f82b",
-          "bytes": 4927
-        },
-        {
-          "sourcePath": "stackmonitoring/license_type.go",
-          "file": "modules/github.com/oracle/oci-go-sdk/v65@v65.121.0/stackmonitoring/license_type.go",
-          "sha256": "ad12b32d38ec17ec32583265a7283220039a9265cb6f8a658363388afa0cf1b3",
-          "bytes": 2330
         }
       ],
       "status": "collected"
@@ -3855,12 +3741,6 @@
           "file": "modules/github.com/ulikunitz/xz@v0.5.15/LICENSE",
           "sha256": "701cbcc144a7c865b072f27547e66ddbf17ac44a3bd21f71149ace02518f107c",
           "bytes": 1447
-        },
-        {
-          "sourcePath": "cmd/xb/copyright.go",
-          "file": "modules/github.com/ulikunitz/xz@v0.5.15/cmd/xb/copyright.go",
-          "sha256": "0aa75c9c999aa7564c8e4c786b89dbfdba17890b02f9b05cb724ea688da2772c",
-          "bytes": 2994
         }
       ],
       "status": "collected"
@@ -4846,12 +4726,6 @@
           "file": "modules/storj.io/uplink@v1.14.3/LICENSE",
           "sha256": "72a550fd10f968b40c0b8364701b5f5f5dde56613e47bfcc3f9d69fbe8abd518",
           "bytes": 1061
-        },
-        {
-          "sourcePath": "private/license/license.go",
-          "file": "modules/storj.io/uplink@v1.14.3/private/license/license.go",
-          "sha256": "0cb32617e07a6e4278e223160a8bc75e4b798f3cc5e6479fc6e3c78e792f3aba",
-          "bytes": 1549
         }
       ],
       "status": "collected"
@@ -5110,11 +4984,31 @@
     "github.com/hashicorp/go-uuid",
     "github.com/hashicorp/golang-lru/v2"
   ],
-  "additionalTermsReview": [
+  "additionalTermsReview": [],
+  "complete": true,
+  "additionalDocuments": [
     {
-      "module": "github.com/cloudsoda/sddl",
-      "document": "modules/github.com/cloudsoda/sddl@v0.0.0-20250224235906-926454e91efc/LICENSE"
+      "file": "GPL-3.0.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/spdx/license-list-data/v3.27.0/text/GPL-3.0-only.txt",
+      "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0"
+    },
+    {
+      "file": "LGPL-3.0.txt",
+      "sourceUrl": "https://proxy.golang.org/github.com/cloudsoda/sddl/@v/v0.0.0-20250224235906-926454e91efc.zip",
+      "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
     }
   ],
-  "complete": false
+  "relinkHeaderSource": {
+    "url": "https://codeload.github.com/macfuse/library/tar.gz/7a6cdd2b6e11071a706f4295aa931c65223ba953",
+    "sha256": "3d6c946d3775a7915f2c974b75612dc509e9f094864b9c1d729afd85c73936c8",
+    "note": "Compatible official source-only headers supplied in the relink asset; original upstream SDK revision is not recorded in the binary."
+  },
+  "sourceProvision": {
+    "asset": "Farshore-0.2.0-rclone-corresponding-source.zip",
+    "sha256": "8e8a4b691ad435bb4f4e4f6b6b137459e125b4d69db0887a6340f3890ed6b0da",
+    "bytes": 431133513,
+    "url": "https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/Farshore-0.2.0-rclone-corresponding-source.zip",
+    "relinkValidated": true,
+    "validation": "Go1.26.9 darwin/arm64 cmount build, offline module proxy; modified LGPL source rebuild also tested."
+  }
 }

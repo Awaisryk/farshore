@@ -30,6 +30,12 @@ made to the upstream rclone or dependency source used in the distributed binary.
   and library source are supplied, so relinking does not require closed object
   files or a developer signing key.
 - `go1.26.9-source.tar.gz`: official source for the general-purpose Go toolchain.
+- `macfuse-headers-source.tar.gz`: complete official macFUSE user-space library
+  source at commit `7a6cdd2b6e11071a706f4295aa931c65223ba953`, including the
+  FUSE2 interface headers and original GPL/LGPL license texts. Only the headers
+  are used for this verified `cmount` relink. No driver, library or system package
+  is installed. This is a compatible pinned SDK; the upstream executable does
+  not record the exact FUSE SDK revision used in its original build.
 - `source-manifest.json`: file checksums, upstream URLs, exact versions and
   official toolchain provenance. `verify-sources.py` verifies the original inputs.
 - `build-rclone.sh`: offline build using the included module proxy. It writes
@@ -58,8 +64,13 @@ avoids adding metadata from an unrelated enclosing Git checkout. Signing and
 build metadata can differ; this is a functional relink procedure, not a claim
 that the rebuilt executable will have an identical byte hash.
 
+The script supplies the bundled FUSE2 headers through `CGO_CFLAGS`. A filesystem
+driver is unnecessary to compile the helper or use Farshore's SFTP/NFS paths.
+
 The Go toolchain and Python3 are general-purpose build tools. No internet access
 is needed during the supplied rclone build once those tools are installed.
+The script disables enclosing Go workspaces and global Go environment/flag
+overrides, and forces the local proxy even if private-module settings are inherited.
 
 ## Modify and relink the LGPL library
 

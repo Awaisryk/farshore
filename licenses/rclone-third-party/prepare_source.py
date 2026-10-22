@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import shutil
 import zipfile
+import tarfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -57,6 +58,11 @@ def prepare():
         raise ValueError('rclone source checksum mismatch')
     shutil.copyfile(source, STAGE / 'rclone-source.zip')
     shutil.copyfile(collector.CACHE / 'go1.26.9.src.tar.gz', STAGE / 'go1.26.9-source.tar.gz')
+    sdk_url = 'https://codeload.github.com/macfuse/library/tar.gz/7a6cdd2b6e11071a706f4295aa931c65223ba953'
+    sdk = collector.fetch(sdk_url, 'macfuse-library-7a6cdd2b6e11071a706f4295aa931c65223ba953.tar.gz')
+    if collector.sha(sdk.read_bytes()) != '3d6c946d3775a7915f2c974b75612dc509e9f094864b9c1d729afd85c73936c8':
+        raise ValueError('Unexpected macFUSE header source checksum')
+    shutil.copyfile(sdk, STAGE / 'macfuse-headers-source.tar.gz')
     with zipfile.ZipFile(source) as archive:
         prefix = archive.namelist()[0]
         sums = archive.read(prefix + 'go.sum').decode().splitlines()
@@ -80,6 +86,8 @@ def prepare():
         target = STAGE / 'module-proxy' / collector.escaped(module) / '@v'
         versions = sorted(file.stem for file in target.glob('*.info'))
         (target / 'list').write_text('\n'.join(versions) + '\n')
+    if (STAGE / 'notices').exists():
+        shutil.rmtree(STAGE / 'notices')
     for item in inventory['modules']:
         for doc in item['documents']:
             target = STAGE / 'notices' / doc['file']
@@ -97,6 +105,7 @@ def prepare():
         'rcloneSource': {'url': source_url, 'sha256': collector.sha(source.read_bytes())},
         'officialBinarySha256': inventory['binarySha256'],
         'goVersion': inventory['goVersion'],
+        'fuseHeaderSource': {'url': sdk_url, 'sha256': collector.sha(sdk.read_bytes()), 'commit': '7a6cdd2b6e11071a706f4295aa931c65223ba953', 'note': 'Compatible official source-only headers for the verified relink. The original upstream binary does not identify its FUSE SDK revision.'},
         'goSource': inventory['goSource'],
         'goDarwinArm64Toolchain': {
             'url': 'https://go.dev/dl/go1.26.9.darwin-arm64.tar.gz',

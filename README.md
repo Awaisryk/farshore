@@ -1,66 +1,138 @@
-# Farshore
+<p align="center">
+  <img src="assets/branding/farshore-mark.png" width="76" alt="Farshore wave mark">
+</p>
+<h1 align="center">Farshore</h1>
+<p align="center"><strong>Your remote files. A little closer.</strong><br>A read-only SSH file browser for macOS.</p>
+<p align="center">
+  <a href="https://github.com/Awaisryk/farshore/releases">Download the beta</a> ·
+  <a href="#screenshots">Screenshots</a> ·
+  <a href="#build-from-source">Build from source</a> ·
+  <a href="https://github.com/Awaisryk/farshore/issues">Report an issue</a>
+</p>
+<p align="center">
+  <a href="https://github.com/Awaisryk/farshore/actions/workflows/ci.yml"><img src="https://github.com/Awaisryk/farshore/actions/workflows/ci.yml/badge.svg" alt="macOS checks"></a>
+  &nbsp; Apple Silicon · macOS · MIT
+</p>
 
-A read-only macOS file browser for existing SSH connections, with native previews, streamed playback and configurable desktop applications. Product requirements: [PRD.md](PRD.md).
+![Farshore browsing a sample media folder in the Midnight theme](docs/images/browser-midnight.png)
 
-Brand assets: [logo, native app icon and favicon set](assets/branding/README.md). Distribution gates: [production readiness](docs/production-readiness.md).
+Farshore brings a visual workspace to the SSH connections you already use. Browse images and videos, jump straight to a remote path, preview common files, and return to your saved folders. Your existing SSH configuration, authentication and host-key trust stay in charge. No software needs to be installed on the server.
 
-## Install the beta
+**This is a read-only beta.** The downloadable app is ad hoc signed and **not notarized**, so macOS may block a downloaded copy. Apple Silicon macOS 26.4 has been validated locally; GitHub CI also checks the build and runtime on macOS 15. Full older-system and Intel acceptance remains open. [See the remaining release gates →](docs/production-readiness.md)
 
-Download the Apple Silicon build from [GitHub Releases](https://github.com/Awaisryk/farshore/releases). Unzip it and move `Farshore.app` to Applications. The beta bundles Python, rclone and the native helper; a checkout, Flutter and Xcode are unnecessary to run it. Your existing OpenSSH configuration and working batch authentication are required. Internal audio/video playback additionally requires the official VLC 3 application; other file previews and external opening work without it.
+## Made for your remote workspace
 
-This first beta is ad hoc signed and **not notarized**. macOS can block a downloaded copy; building from source is available below. It has been checked on Apple Silicon macOS 26.4. Older macOS releases and Intel builds have not been validated.
+| | What you can do |
+| --- | --- |
+| **Browse visually** | Switch between grid, list and gallery; resize thumbnails, filter names, sort files and inspect details. |
+| **Jump anywhere** | Press `/` for the path launcher. Open SSH Home, `/`, `/data`, `/data2` or any path your account can read. Revisit five recent destinations across servers. |
+| **Keep useful places close** | Favorite servers and folders. Restore up to 32 folder tabs, the active location, view, density, sort and inspector choices. Saved tabs connect when you resume them. |
+| **Preview inside the app** | View common images, PDFs, Office documents and selectable text. Stream audio/video through an installed official VLC 3 application. Open With stays available. |
+| **Fill the gallery** | Generate video thumbnails for the entire listed folder, with progress, cancellation and retry. Visible previews take priority; playback pauses background generation. |
+| **Make it yours** | Choose Shore, Deep Shore, Frost, Sand, Midnight or Orchid. Themes apply across Home, the browser, dialogs and playback controls. |
+| **Stay in control** | Set the thumbnail cache budget, clear generated thumbnails and copy redacted diagnostics. Interrupted folder reads have bounded retries and a Cancel action. |
 
-## Build — no full Xcode
+## Screenshots
 
-The development app uses Flutter and an AppKit host compiled by the installed **Command Line Tools**. No Xcode application, xcodebuild, CocoaPods, or web wrapper is required.
+These images render Farshore's actual interface with sample servers, sample paths and generated demo artwork. They contain no private connections or user files. Click an image to see it at full size.
+
+<table>
+  <tr>
+    <td width="50%"><a href="docs/images/home-shore.png"><img src="docs/images/home-shore.png" alt="Farshore Home with sample saved servers, recent folders and workspace status"></a><br><strong>A useful Home.</strong> Servers, recent folders, open tabs and local storage in one place.</td>
+    <td width="50%"><a href="docs/images/path-launcher.png"><img src="docs/images/path-launcher.png" alt="Farshore path launcher showing five recent sample paths"></a><br><strong>One shortcut to anywhere.</strong> Type a path or return to a recent destination.</td>
+  </tr>
+  <tr>
+    <td width="50%"><a href="docs/images/themes.png"><img src="docs/images/themes.png" alt="Farshore theme picker with six workspace themes"></a><br><strong>Six workspace themes.</strong> Preview a palette and keep browsing.</td>
+    <td width="50%"><a href="docs/images/settings.png"><img src="docs/images/settings.png" alt="Farshore Settings with workspace restoration, favorite folders and thumbnail cache controls"></a><br><strong>Settings that matter.</strong> Saved folders, cache limits, cleanup and diagnostics.</td>
+  </tr>
+</table>
+
+## Install
+
+**[Download Farshore 0.2.0 beta for Apple Silicon](https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/Farshore-0.2.0-macos-arm64-beta.zip)** · about 61 MiB · [checksums](https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/SHA256SUMS)
+
+1. Download `Farshore-0.2.0-macos-arm64-beta.zip` from [Releases](https://github.com/Awaisryk/farshore/releases). Use the accompanying `SHA256SUMS` to verify it.
+2. Unzip it and move `Farshore.app` to Applications.
+3. Open Farshore and choose an alias from your existing SSH configuration.
+
+The app bundles Python, rclone and its native helper. A checkout, Flutter, Homebrew and Xcode are unnecessary to run it. You need an SSH connection that already works with verified host keys and noninteractive authentication. Unknown or changed host identities stop access; Farshore does not weaken SSH trust settings.
+
+An **official VLC 3 installation** enables internal audio/video playback. Other previews and external opening work without VLC. Supported document variants depend on macOS Quick Look providers; unsupported files retain an explicit Open With choice.
+
+For upgrades, quit the old app and replace its bundle. Preferences and cached thumbnails stay in your Library folders. [Installation, rollback and development-state migration →](docs/releases.md)
+
+## A few shortcuts
+
+| Shortcut | Action |
+| --- | --- |
+| `/` | Open the global path launcher, outside text fields |
+| `⌘L` | Go to a folder |
+| `⌘F` | Filter the current folder |
+| `⌘T` | Open a new tab |
+| `⌘R` | Refresh the current folder |
+| `Space` | Quick preview |
+| `Return` | Open the selected file |
+
+## Your files and local data
+
+Remote access stays read-only. Farshore does not expose rename, delete, upload, remote editing or explicit transfer controls in this beta. Authentication remains with existing OpenSSH tooling. No telemetry, automatic crash upload or automatic updater is enabled.
+
+| Local data | Location |
+| --- | --- |
+| Preferences, workspace, favorites and retained-session metadata | `~/Library/Application Support/Farshore` |
+| Generated thumbnail PNGs | `~/Library/Caches/Farshore/thumbnails` |
+| Temporary document snapshots | Private `previews` directory in Application Support; removed after acknowledged close or stale-owner cleanup |
+
+Settings supports a **128 MiB–2 GiB** thumbnail budget. Clearing it removes completed thumbnail PNGs while preserving preferences, open previews and external sessions. Document snapshots are bounded: up to 64 MiB per image, 32 MiB per document or the first 512 KiB of text; truncated text is labeled. Audio/video stream instead of requiring a complete local copy.
+
+External opening uses an experimental loopback NFS bridge. Cold reads can stall, and other local processes can access the loopback export. Internal playback uses a scoped, token-protected range endpoint instead. Close external readers before ejecting their mounted volumes in Finder. [Access model and validation limits →](docs/production-readiness.md)
+
+## Build from source
+
+You need an Apple Silicon Mac, Git and Apple's **Command Line Tools**. Full Xcode, CocoaPods and `xcodebuild` are not required by this build path.
 
 ```sh
+git clone https://github.com/Awaisryk/farshore.git
+cd farshore
 scripts/bootstrap.sh
-scripts/build-app.sh --run
+scripts/build-app.sh --release
+open build/Farshore.app
 ```
 
-Open `build/Farshore.app` in Finder after building. The build produces a standalone app with pinned, hash-verified runtimes. Use the build script rather than `flutter run -d macos`, which follows the ordinary full-Xcode build pipeline. See [release and migration instructions](docs/releases.md).
+The scripts pin and verify dependencies, build an optimized Flutter AOT interface and Swift host, assemble the standalone runtime, and sign the bundle ad hoc. Use `--debug` only for debugging; release AOT is the default. Existing running bundles are preserved during rebuilds.
 
-Builds use optimized release AOT by default, including an optimized Swift host. Use `scripts/build-app.sh --debug` only when debugging; debug/JIT builds are unsuitable for judging UI smoothness. Reopen the app after rebuilding to load the new bundle.
-
-## What works
-
-Home brings together your actual saved servers, five recent folders, open tabs, thumbnail cache usage, file-access sessions and recent opening activity. It remains available in the sidebar and tab bar. Saved tabs restore as disconnected folders until you explicitly resume them. The first six servers appear with favorites first; expand the section to see every configured alias. Returning to Home preserves your browsing state without connecting to servers; choose an open folder to resume it. Status values show their last successful check and retain an explicit warning if refresh fails.
-
-Real SSH alias discovery, strict verification, read-only SFTP browsing, tabs, breadcrumbs/direct paths, back/forward, grid/list/gallery, filters/sort, hidden files, multiselection, keyboard navigation, light/dark appearance, inspector, progressive image thumbnails and native Open With are implemented. Remembered application choices affect Farshore only.
-
-Double-click or press Return to open supported files **inside Farshore**. Images (including PNG), PDFs and common Office/OpenDocument/iWork files use an embedded macOS Quick Look preview. Text, Markdown, JSON, logs, configuration and source files open as selectable plain text; HTML is displayed as source. Audio uses the same internal playback controls as video. Space opens the corresponding quick preview. Unknown types retain external opening; **Open With** is also available from every viewer, including failed or unsupported previews. A supported preview failure never silently launches another app.
-
-Document previews use private temporary snapshots read directly over SSH, without an NFS mount: up to 64 MiB per image, 32 MiB per document, or the first 512 KiB of text. Truncated text is labeled. Copies are removed when the preview closes; preparing, canceled and failed requests also have bounded cleanup. macOS's installed Quick Look providers determine which document variants render. Audio/video continue to stream instead of using the document-copy path.
-
-Click a server's star to keep it at the top of Connections and Home; favorites persist across launches. The browser toolbar's **SSH Home** opens the SSH home directory, **Root** opens `/`, and **Go to folder** (`⌘L`) accepts paths such as `/data` or `/data2`, subject to the remote account's permissions. Farshore's own **Home** page is a separate destination.
-
-Press **/** outside a text field to open the app's path launcher. Enter a path or choose one of the five most recent destinations, labeled by server. Successful launcher visits are saved across restarts; reopening one moves it to the top. Slashes inside text fields remain ordinary input.
-
-Use the folder star to save a favorite path. **Settings** lists favorite folders, controls workspace restoration and the 128 MiB–2 GiB thumbnail budget, clears generated thumbnails, and copies redacted diagnostics. Open tabs, active location, view, density, sort, hidden-file and inspector choices persist. File contents, SSH credentials and selections are not saved in the workspace. A failed helper restarts on a subsequent request; interrupted folder reads retry twice with a Cancel control, while trust/authentication failures stop immediately.
-
-Choose the **palette button at the bottom of the sidebar** for six workspace themes: Shore, Deep Shore, Frost, Sand, Midnight and Orchid. The preview cards apply a theme immediately across Home, the browser and player controls. Your choice persists across launches; switching themes keeps the current folder and selection.
-
-Videos open inside Farshore using **LibVLC**, with play/pause, seeking, volume and an explicit Open With fallback. Farshore verifies the official VideoLAN signature before loading an installed VLC 3 application; it does not redistribute VLC. In-app media uses a token-protected, single-file loopback range endpoint backed by SSH, avoiding NFS for internal playback.
-
-Visible videos also receive cached thumbnails when macOS's AVFoundation decoder supports their format. Thumbnail workers use bounded range reads, run outside the UI process, and yield to playback. Unsupported, slow or over-budget videos keep their file icon. No server-side software or local ffmpeg runtime dependency is required.
-
-For a large folder, use **Generate video thumbnails** to prepare every video already listed in that folder without scrolling. The progress row shows ready/total, cancellation and **Retry missing**. Visible previews take priority; temporary failures retry with bounded backoff, and playback pauses background generation. Cached previews remain available while playing a video. This action does not scan subfolders.
-
-The experimental mount engine exports only the selected directory over local loopback NFS; remote traffic remains SSH. Opening checks an actual mounted-file read and never silently creates a full local copy. Mounts can outlive tabs and quitting. Close external files before unmounting their volumes in Finder.
-
-**This is a read-only beta.** Mounted reads and seeks passed after earlier macOS system-policy denials, but cold NFS reads have also stalled. Multi-gigabyte playback, two selected-player scenarios, exact transfer accounting and cache pressure still need validation. No remote writes, transfers or recursive search are exposed. See [technical validation](docs/technical-validation.md) and [implementation status](docs/implementation-status.md).
-
-## Check
+<details>
+<summary><strong>Run the checks</strong></summary>
 
 ```sh
+export FLUTTER_SUPPRESS_ANALYTICS=true
+.tools/flutter/bin/flutter --no-version-check analyze
+.tools/flutter/bin/flutter --no-version-check test
 python3 -m unittest discover -s tests -v
-FLUTTER_SUPPRESS_ANALYTICS=true XDG_CONFIG_HOME="$PWD/.tools/flutter-config" \
-  .tools/flutter/bin/flutter --no-version-check analyze
-FLUTTER_SUPPRESS_ANALYTICS=true XDG_CONFIG_HOME="$PWD/.tools/flutter-config" \
-  .tools/flutter/bin/flutter --no-version-check test
-scripts/build-native.sh --check
-python3 scripts/validate-read-path.py YOUR_ALIAS 'existing/video.mp4'
+python3 scripts/test-portable-app.py build/Farshore.app
+scripts/test-native-accessibility.sh build/Farshore.app --home
 ```
 
-Tools, builds, private logs, preferences, thumbnail caches and measurements are ignored by `.gitignore`. Source is published under the [MIT license](LICENSE). Bundled dependency notices are available in Settings → Open-source licenses and in the application resources. See [decisions](docs/decisions.md) and [dependency inventory](docs/dependencies.md).
+The current validation includes **151 Flutter tests**, **73 backend/packaging tests**, clean analysis, a relocated standalone-runtime check, and native accessibility, document-preview, playback and signature checks. Full multi-gigabyte media, sleep/wake, older-system and clean Gatekeeper download acceptance remain open.
+
+Documentation screenshots can be regenerated with `scripts/capture-readme.sh`; the [image notes](docs/images/README.md) describe the sample data.
+
+See [technical validation](docs/technical-validation.md) for measured results and limits. [Portable packaging](docs/portable-package.md) explains runtime provenance, migration, signing and notarization.
+
+</details>
+
+## Project notes
+
+- [Product requirements](PRD.md) — intended product and wider acceptance criteria.
+- [Implementation status](docs/implementation-status.md) — what works and what remains.
+- [Engineering decisions](docs/decisions.md) — SSH, previews, caching and lifecycle choices.
+- [Dependency inventory](docs/dependencies.md) — pinned versions, upstream sources and notices.
+- [Production readiness](docs/production-readiness.md) — the remaining distribution gates.
+
+Found a problem? Use Settings → Copy diagnostics, review the redacted report, and [open an issue](https://github.com/Awaisryk/farshore/issues). Include the app/macOS versions and steps to reproduce. Keep private keys, SSH configuration, private file listings and unrestricted logs out of public reports.
+
+## License
+
+Farshore's source is available under [MIT](LICENSE). Bundled dependencies retain their own licenses and notices; these are available in Settings → Open-source licenses and in the app's Resources directory. VLC is independently installed and is not redistributed.
+
+The release also includes a [corresponding-source kit for rclone](https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/Farshore-0.2.0-rclone-corresponding-source.zip), including LGPL/MPL components, an offline module proxy, and rebuild/replacement instructions. That optional source download is unnecessary to run Farshore.

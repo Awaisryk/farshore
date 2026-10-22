@@ -1,0 +1,8 @@
+{
+  "asset": "Farshore-0.2.0-rclone-corresponding-source.zip",
+  "sha256": "8e8a4b691ad435bb4f4e4f6b6b137459e125b4d69db0887a6340f3890ed6b0da",
+  "bytes": 431133513,
+  "url": "https://github.com/Awaisryk/farshore/releases/download/v0.2.0-beta.1/Farshore-0.2.0-rclone-corresponding-source.zip",
+  "relinkValidated": true,
+  "validation": "Go1.26.9 darwin/arm64 cmount build, offline module proxy; modified LGPL source rebuild also tested."
+}
